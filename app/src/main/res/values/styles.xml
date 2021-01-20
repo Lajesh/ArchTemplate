@@ -1,0 +1,308 @@
+<resources>
+    <!-- Base application theme. -->
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/light_grey2</item>
+        <item name="colorControlActivated">@color/blue</item>
+        <item name="colorControlHighlight">@color/blue</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="alertDialogTheme">@style/AlertDialogCustom</item>
+        <item name="appBarLayoutStyle">@style/AppBarLayoutStyle</item>
+    </style>
+
+    <style name="AppBarLayoutStyle" parent="Widget.Design.AppBarLayout">
+        <item name="android:background">@color/light_grey7</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme" />
+
+    <style name="AppTheme.TranslucentStatus">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">@color/cyan</item>
+        <item name="android:colorAccent">@color/cyan</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AlertDialogTitleText" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/black_alpha_86</item>
+    </style>
+
+    <style name="AlertDialogBodyText" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextInputStyle" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/light_grey2</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontPath">fonts/roboto_regular.ttf</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorControlNormal">@color/light_grey2</item>
+        <item name="colorControlActivated">@color/blue</item>
+        <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
+    </style>
+
+    <style name="TextAppearence.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/light_grey2</item>
+    </style>
+
+    <style name="ErrorTextAppearance">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">#f44336</item>
+        <item name="fontPath">fonts/roboto_regular.ttf</item>
+    </style>
+
+    <style name="FlatButton" parent="android:Widget.Material.Button.Borderless">
+        <item name="colorControlHighlight">@color/cyan</item>
+        <item name="android:colorControlHighlight">@color/cyan</item>
+        <item name="fontPath">fonts/roboto_medium.ttf</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:textColor">@color/cyan</item>
+    </style>
+
+    <style name="RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:layout_height">@dimen/_45sdp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">@dimen/_22sdp</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="fontPath">fonts/roboto_regular.ttf"</item>
+    </style>
+
+    <style name="FilterRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingStart">@dimen/_10sdp</item>
+        <item name="android:textAppearance">@style/SubTitleStyle.Small</item>
+    </style>
+
+    <style name="CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingStart">@dimen/_10sdp</item>
+        <item name="android:textAppearance">@style/SubTitleStyle.Small.Light</item>
+    </style>
+
+    <style name="Button" parent="android:Widget.Button">
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">fonts/roboto_medium.ttf</item>
+    </style>
+
+    <style name="Button.RoundedCyan">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/cyan_clickable</item>
+    </style>
+
+    <style name="Button.RoundedWhite">
+        <item name="android:textColor">@color/sel_rounded_white_button</item>
+        <item name="android:background">@drawable/white_clickable</item>
+    </style>
+
+    <style name="Button.RoundedWhiteAlt">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/white_clickable_alt</item>
+    </style>
+
+    <style name="Button.Borderless">
+        <item name="android:textColor">@color/sel_borderless_button</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="Button.Borderless.Bold">
+        <item name="fontPath">fonts/roboto_bold.ttf</item>
+    </style>
+
+    <style name="Button.Borderless.Red">
+        <item name="android:textColor">@color/sel_borderless_button_red</item>
+    </style>
+
+    <style name="Button.Borderless.DarkGray">
+        <item name="android:textColor">@color/sel_borderless_button_dark_grey</item>
+    </style>
+
+    <style name="Button.Borderless.Toolbar">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="TitleStyle">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="fontPath">fonts/roboto_medium.ttf</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TitleStyle.Bold">
+        <item name="fontPath">fonts/roboto_bold.ttf</item>
+    </style>
+
+    <style name="TitleStyle.AlertDialogTitle">
+        <item name="android:textColor">@color/black_alpha_86</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="fontPath">fonts/roboto_medium.ttf</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="TitleStyle.Dialog">
+        <item name="android:textColor">@color/black_alpha_86</item>
+    </style>
+
+    <style name="TitleStyle.Toolbar">
+        <item name="android:layout_marginStart">@dimen/_22sdp</item>
+    </style>
+
+    <style name="TitleStyle.Small">
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+    <style name="TitleStyle.Small.LightGrey3">
+        <item name="android:textColor">@color/light_grey3</item>
+    </style>
+
+    <style name="TitleStyle.SmallX">
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="TitleStyle.SmallX.Bold">
+        <item name="fontPath">fonts/roboto_bold.ttf</item>
+    </style>
+
+    <style name="TitleStyle.Tiny">
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="TitleStyle.ProfileTitle">
+        <item name="android:textSize">@dimen/_20ssp</item>
+    </style>
+
+    <style name="TitleStyle.TransactionDetail">
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SubTitleStyle">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="fontPath">fonts/roboto_regular.ttf</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SubTitleStyleTwo">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="fontPath">fonts/roboto_regular.ttf</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SubTitleStyleThree">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="fontPath">fonts/roboto_regular.ttf</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SubTitleStyle.Tour">
+        <item name="android:textColor">@color/light_dark_grey</item>
+    </style>
+
+    <style name="SubTitleStyle.Filter">
+        <item name="fontPath">fonts/roboto_bold.ttf</item>
+    </style>
+
+    <style name="SubTitleStyle.Small">
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="SubTitleStyle.Small.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SubTitleStyle.Small.Light">
+        <item name="android:textColor">@color/light_grey3</item>
+    </style>
+
+    <style name="SubTitleStyle.Blue">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="SubTitleStyle.Cyan">
+        <item name="android:textColor">@color/cyan</item>
+    </style>
+
+    <style name="SubTitleStyle.Blue.TinyX">
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+
+    <style name="SubTitleStyle.Blue.Large">
+        <item name="android:textSize">@dimen/_20sdp</item>
+    </style>
+
+    <style name="SubTitleStyle.Blue.LargeX">
+        <item name="android:textSize">@dimen/_30sdp</item>
+    </style>
+
+    <style name="SubTitleStyle.TransactionDetail">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+
+    <style name="SubTitleStyle.Bold">
+        <item name="fontPath">fonts/roboto_bold.ttf</item>
+    </style>
+
+    <style name="SubTitleStyle.Bold.Blue">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="SubTitleStyle.Bold.LightGrey4">
+        <item name="android:textColor">@color/light_grey4</item>
+    </style>
+
+    <style name="EmptyListMessageStyle">
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="fontPath">fonts/roboto_medium.ttf</item>
+        <item name="android:textColor">@color/light_grey3</item>
+    </style>
+
+    <style name="TextInputStyle.Picker">
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="TextInputStyle.Picker.SecurityQuestion">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="TextInputStyle.Answer">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="SubTitleStyle.Tiny">
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="SubTitleStyle.Tiny.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SubTitleStyle.Tiny.Light">
+        <item name="android:textColor">@color/light_grey3</item>
+    </style>
+
+    <style name="SubTitleStyle.TinyX">
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+
+    <style name="SubTitleStyle.TinyX.Light">
+        <item name="android:textColor">@color/light_grey3</item>
+    </style>
+
+</resources>

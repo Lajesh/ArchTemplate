@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Template APP</string>
+    <string name="title_error">Error</string>
+    <string name="action_ok">OK</string>
+    <string name="hint_email">Email Address</string>
+    <string name="hint_password">Password</string>
+    <string name="action_log_in">Login</string>
+    <string name="action_forgot_password">Forgot password ?</string>
+    <string name="error_enter_email">Please enter your email address</string>
+    <string name="error_email_invalid">Please enter a valid email address</string>
+    <string name="error_enter_password">Please enter password</string>
+    <string name="welcome_lajesh">Welcome!</string>
+    <string name="brain_data">Brain data</string>
+    <string name="heartrate_variability_ms">HeartRate Variability(MS)</string>
+    <string name="dicom">DICOM</string>
+    <string name="error_permission_denied">Permission denied</string>
+    <string name="info_permission_denied">If you reject permission,you can not use this service. \nPlease turn on permissions at [Setting] > [Permission]</string>
+</resources>

@@ -1,0 +1,222 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'koin'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    testOptions {
+        // This has been put so that the default android components like Log we don't need to mock
+        // Instead it will return true or null by default
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            setIgnoreFailures(true)
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("test")
+            storePassword ""
+            keyAlias ""
+            keyPassword ""
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.template.cleanapp"
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    flavorDimensions "server"
+
+    productFlavors {
+
+        dev {
+            dimension "server"
+        }
+
+        uat {
+            dimension "server"
+        }
+
+        sit {
+            dimension "server"
+        }
+
+        pilot {
+            dimension "server"
+        }
+
+        prod {
+            dimension "server"
+        }
+    }
+
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def project = "templateApp"
+            def SEP = "_"
+            def flavor = variant.productFlavors[0].name
+            def buildType = variant.buildType.name
+            def version = variant.versionName
+            def date = new Date()
+            def formattedDate = date.format('dd-MM-yy')
+            def newApkName = project + SEP + flavor + SEP + buildType + SEP + version + ".apk"
+            outputFileName = new File(newApkName)
+        }
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':data')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "androidx.core:core-ktx:$app_compat_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation "com.google.android.material:material:$material_version"
+
+    // Android Lifecycle
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
+    // Koin AndroidX Scope features
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    // Koin AndroidX ViewModel features
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    // Koin AndroidX Fragment features
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    // Koin AndroidX Experimental features
+    implementation "org.koin:koin-androidx-ext:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-core:$koin_version"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_Logging_Version"
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.11.0'
+    implementation "com.squareup.okio:okio:$okio_version"
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rx_java2_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android2_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
+
+    // Circle Image view
+    implementation "de.hdodenhof:circleimageview:$circle_image_version"
+
+
+    // android architecture component
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    // For Data binding
+    kapt "com.android.databinding:compiler:$data_binding_compiler_version"
+
+    //calligraphy
+    implementation "io.github.inflationx:calligraphy3:$calligrapy_version"
+    implementation "io.github.inflationx:viewpump:$view_pump_version"
+
+    // Test Dependencies
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+
+    // Timber for Logging
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+
+    // sdp and ssp
+    implementation "com.intuit.sdp:sdp-android:$sdp_version"
+    implementation "com.intuit.ssp:ssp-android:$sdp_version"
+
+    // Lottie Animation
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
+
+    // Firebase dependencies
+    implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
+    implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_version"
+    implementation "com.google.firebase:firebase-messaging:$fcm_version"
+
+
+    // loading dots
+    implementation "com.eyalbira.loadingdots:loading-dots:$progress_dot_version"
+    implementation "com.github.PhilJay:MPAndroidChart:$mp_chart_version"
+
+
+    // Unit tests
+    // Required -- JUnit 4 framework
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "androidx.arch.core:core-testing:$core_testing_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "io.kotlintest:kotlintest:$kotlin_test_version"
+    testImplementation "org.powermock:powermock-module-junit4-rule:$powermock_version"
+    testImplementation "org.powermock:powermock-core:$powermock_version"
+    testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
+    testImplementation "org.powermock:powermock-api-mockito2:$powermock_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mock_webserver_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+    androidTestImplementation "org.koin:koin-test:$koin_version"
+    implementation "org.koin:koin-core-ext:$koin_version"
+
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test:rules:$test_rules_version"
+    implementation "androidx.test.espresso.idling:idling-concurrent:$espresso_idling_version"
+    implementation "androidx.test.espresso:espresso-idling-resource:$espresso_idling_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+
+}
